@@ -1,0 +1,80 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-21T00:57:22.056Z",
+        "reason": "agent: dark-theme secondary ink #b2b9c9 on navy hover #1c2945 is 7.9:1; paper-ink on passport-cover pairing from the direction contract"
+      },
+      {
+        "rule": "gray-on-color",
+        "value": "*",
+        "files": [
+          "public/tray-popup.html"
+        ],
+        "createdAt": "2026-10-21T01:03:00.375Z",
+        "reason": "agent: same dark-theme secondary ink #b2b9c9 on navy hover #1c2945 (7.9:1) from shared styles.css"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "public/styles.css"
+        ],
+        "createdAt": "2026-10-21T01:07:19.684Z",
+        "reason": "agent: full-width guilloche security-print strip under modal/menu headers is the brand signature in the direction contract, not a side tab"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-21T01:07:19.880Z",
+        "reason": "agent: full-width guilloche security-print strip under modal/menu headers is the brand signature in the direction contract, not a side tab"
+      },
+      {
+        "rule": "side-tab",
+        "value": "*",
+        "files": [
+          "public/tray-popup.html"
+        ],
+        "createdAt": "2026-10-21T01:07:20.054Z",
+        "reason": "agent: full-width guilloche security-print strip under modal/menu headers is the brand signature in the direction contract, not a side tab"
+      },
+      {
+        "rule": "gpt-thin-border-wide-shadow",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-21T01:07:26.999Z",
+        "reason": "agent: floating modal/menu/toast need the 1px rule to separate from the navy ground in dark theme; shadow already cut to 22px with offset"
+      },
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-21T01:09:29.256Z",
+        "reason": "agent: segmented-control wrappers use 2px padding by design; each button insets its own text (26px height, 10px sides)"
+      },
+      {
+        "rule": "tiny-text",
+        "value": "*",
+        "files": [
+          "public/index.html"
+        ],
+        "createdAt": "2026-10-21T02:22:20.575Z",
+        "reason": "agent: remaining 11px text is data meta (counts, IPs, country codes, timestamps) on the documented 11px floor; the only 11px sentence (globe note) was raised to 12px"
+      }
+    ]
+  }
+}

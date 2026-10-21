@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>DarkMirror</title>
+  <link rel="icon" type="image/svg+xml" href="/brand/app-icon.svg" />
+  <link rel="preload" href="/fonts/public-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <script src="/theme-init.js"></script>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body class="dm-app">
+  <!-- Icon sprite: 24px grid, 1.75 stroke -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="dm-mark" viewBox="0 0 32 32">
+        <clipPath id="dmMarkClip"><path d="M17 4H20C25.5 4 29 9.4 29 16S25.5 28 20 28H17Z"/></clipPath>
+        <path d="M15 4H12C6.5 4 3 9.4 3 16S6.5 28 12 28H15Z" fill="currentColor"/>
+        <g clip-path="url(#dmMarkClip)" style="stroke: var(--dm-mark-reflect, currentColor)" stroke-width="2">
+          <path d="M17 6H30M17 10H30M17 14H30M17 18H30M17 22H30M17 26H30"/>
+        </g>
+        <path d="M17 4H20C25.5 4 29 9.4 29 16S25.5 28 20 28H17Z" fill="none" style="stroke: var(--dm-mark-reflect, currentColor)" stroke-width="1.5"/>
+      </symbol>
+      <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+      <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="i-square" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-check-all" viewBox="0 0 24 24"><path d="M2 12.5l4.5 4.5L17 6.5M12 16l1 1L22 6.5"/></symbol>
+      <symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14M19 12l-7 7-7-7"/></symbol>
+      <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+      <symbol id="i-chart" viewBox="0 0 24 24"><path d="M3 20h18M4 16l5-6 4 4 7-8"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></symbol>
+      <symbol id="i-pause" viewBox="0 0 24 24"><path d="M9 5v14M15 5v14"/></symbol>
+      <symbol id="i-play" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></symbol>
+      <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 4.8-3.4 8.3-8 9.5-4.6-1.2-8-4.7-8-9.5V6z"/><path d="M9 12l2 2 4-4"/></symbol>
+      <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.7 5.7l12.6 12.6"/></symbol>
+      <symbol id="i-eye-off" viewBox="0 0 24 24"><path d="M3 3l18 18M10.6 6.1c.5-.1.9-.1 1.4-.1 5 0 9 6 9 6a17 17 0 0 1-2.4 3.1M6.6 6.6C4.3 8.1 3 12 3 12s4 6 9 6c2 0 3.8-.6 5.4-1.6M9.9 9.9a3 3 0 0 0 4.2 4.2"/></symbol>
+      <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 8 2.5 8h-17S6 15 6 9M10.3 20.5a2 2 0 0 0 3.4 0"/></symbol>
+      <symbol id="i-bell-off" viewBox="0 0 24 24"><path d="M3 3l18 18M8.4 4.2A6 6 0 0 1 18 9c0 2.3.4 4 .9 5.2M17 17H3.5S6 15 6 9c0-.6.1-1.2.2-1.7M10.3 20.5a2 2 0 0 0 3.4 0"/></symbol>
+      <symbol id="i-pip" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1.5"/><rect x="12" y="11" width="6" height="5" rx=".5"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+      <symbol id="i-radar" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l6.4-6.4"/></symbol>
+      <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 6.5A1.5 1.5 0 0 1 4.5 5H9l2 2h8.5A1.5 1.5 0 0 1 21 8.5v9a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5z"/></symbol>
+      <symbol id="i-desktop" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></symbol>
+      <symbol id="i-router" viewBox="0 0 24 24"><rect x="3" y="13" width="18" height="7" rx="1.5"/><path d="M7 16.5h.01M10.5 16.5h.01M16 13V9M13.2 7.2a4 4 0 0 1 5.6 0M10.7 4.7a7.5 7.5 0 0 1 10.6 0"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16zM13.5 6.5l4 4"/></symbol>
+      <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+      <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+      <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3v8M6.3 6.3a8 8 0 1 0 11.4 0"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M5.3 18.7l1.4-1.4M17.3 6.7l1.4-1.4"/></symbol>
+      <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></symbol>
+      <symbol id="i-rotate" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.7M20 4v5h-5"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="2"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></symbol>
+      <symbol id="i-gate-open" viewBox="0 0 24 24"><path d="M5 5v15M2.5 20h5"/><path d="M6.5 9.5l12-7" stroke-width="3"/></symbol>
+      <symbol id="i-gate-closed" viewBox="0 0 24 24"><path d="M5 5v15M2.5 20h5"/><path d="M6.5 9h15" stroke-width="3"/><path d="M11 7.5v3M16 7.5v3" stroke-width="1.2"/></symbol>
+      <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3.5l9.5 16.5h-19z"/><path d="M12 10v4M12 17h.01"/></symbol>
+      <symbol id="i-devices" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="9" rx="1"/><rect x="16" y="9" width="5" height="10" rx="1"/><path d="M6 18h6"/></symbol>
+      <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+    </defs>
+  </svg>
+
+  <header class="dm-titlebar" id="dmTitlebar">
+    <div class="dm-titlebar-left">
+      <div class="dm-menu-wrapper">
+        <button class="dm-icon-btn" id="btnMainMenu" title="DarkMirror menüsü" aria-haspopup="true">
+          <svg class="i"><use href="#i-menu"/></svg>
+        </button>
+        <div class="dm-dropdown-menu" id="mainDropdownMenu" hidden>
+          <div class="dm-dropdown-header">
+            <svg class="dm-mark"><use href="#dm-mark"/></svg>
+            <div>
+              <strong>DarkMirror</strong>
+              <span>Açık kaynak ağ izleyici</span>
+            </div>
+          </div>
+          <button class="dm-dropdown-item" id="menuMiniViewer">
+            <svg class="i"><use href="#i-pip"/></svg>
+            <span>Mini görüntüleyici</span>
+          </button>
+          <button class="dm-dropdown-item" id="menuTheme">
+            <svg class="i" id="menuThemeIcon"><use href="#i-desktop"/></svg>
+            <span>Tema</span>
+            <span class="dm-item-hint" id="menuThemeLabel">Sistem</span>
+          </button>
+          <button class="dm-dropdown-item" id="menuVirusTotal">
+            <svg class="i"><use href="#i-shield"/></svg>
+            <span>VirusTotal anahtarı</span>
+          </button>
+          <button class="dm-dropdown-item" id="menuDataPlan">
+            <svg class="i"><use href="#i-sliders"/></svg>
+            <span>Veri planı ve kota</span>
+          </button>
+          <button class="dm-dropdown-item" id="menuExportCsv">
+            <svg class="i"><use href="#i-download"/></svg>
+            <span>Trafik raporunu dışa aktar (CSV)</span>
+          </button>
+          <button class="dm-dropdown-item" id="menuClearHistory">
+            <svg class="i"><use href="#i-trash"/></svg>
+            <span>Trafik geçmişini temizle</span>
+          </button>
+          <div class="dm-dropdown-divider"></div>
+          <button class="dm-dropdown-item" id="menuAbout">
+            <svg class="i"><use href="#i-info"/></svg>
+            <span>DarkMirror hakkında</span>
+          </button>
+          <button class="dm-dropdown-item dm-dropdown-danger" id="menuQuitApp">
+            <svg class="i"><use href="#i-power"/></svg>
+            <span>DarkMirror'dan çık</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dm-brand">
+        <svg class="dm-mark"><use href="#dm-mark"/></svg>
+        <div class="dm-brand-text">
+          <span class="dm-brand-title">DarkMirror</span>
+          <span class="dm-brand-sub" id="miniLiveSubtitle">İzleniyor</span>
+        </div>
+      </div>
+
+      <div class="dm-quick-modes">
+        <button class="dm-mode-icon" id="btnIncognito" title="Gizli mod: geçmiş kaydedilmez">
+          <svg class="i i-sm"><use href="#i-eye-off"/></svg>
+          <span>Gizli</span>
+        </button>
+        <button class="dm-mode-icon" id="btnSnooze" title="Bildirimleri 24 saat ertele">
+          <svg class="i i-sm"><use href="#i-bell-off"/></svg>
+          <span>Ertele</span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="dm-tabs" id="mainNav" aria-label="Ana bölümler">
+      <button class="dm-tab active" data-tab="graph">
+        <span class="dm-tab-label">Grafik</span>
+      </button>
+      <button class="dm-tab" data-tab="firewall">
+        <span class="dm-tab-label">Güvenlik Duvarı</span>
+        <span class="dm-tab-badge dm-badge-warn" id="firewallBadge" hidden>0</span>
+      </button>
+      <button class="dm-tab" data-tab="usage">
+        <span class="dm-tab-label">Kullanım</span>
+      </button>
+      <button class="dm-tab" data-tab="network">
+        <span class="dm-tab-label">Ağ</span>
+        <span class="dm-tab-badge dm-badge-cyan" id="networkCountBadge">0</span>
+      </button>
+      <button class="dm-tab" data-tab="alerts">
+        <span class="dm-tab-label">Uyarılar</span>
+        <span class="dm-tab-badge dm-badge-danger" id="alertUnreadBadge" hidden>0</span>
+      </button>
+    </nav>
+
+    <div class="dm-titlebar-right">
+      <div class="dm-live-rates">
+        <div class="dm-rate-item dm-rate-down" title="Anlık indirme hızı (gelen)">
+          <svg class="i i-sm"><use href="#i-arrow-down"/></svg>
+          <strong id="liveDownRate">0 B/sn</strong>
+        </div>
+        <div class="dm-rate-divider"></div>
+        <div class="dm-rate-item dm-rate-up" title="Anlık yükleme hızı (giden)">
+          <svg class="i i-sm"><use href="#i-arrow-up"/></svg>
+          <strong id="liveUpRate">0 B/sn</strong>
+        </div>
+      </div>
+
+      <button class="dm-icon-btn dm-mini-toggle" id="btnMiniViewer" title="Mini görüntüleyici">
+        <svg class="i"><use href="#i-pip"/></svg>
+      </button>
+
+      <div class="dm-window-controls" id="windowControls">
+        <button class="dm-win-btn" id="btnWinMinimize" title="Küçült">
+          <svg class="i i-sm"><use href="#i-minus"/></svg>
+        </button>
+        <button class="dm-win-btn" id="btnWinMaximize" title="Ekranı kapla / geri yükle">
+          <svg class="i i-sm"><use href="#i-square"/></svg>
+        </button>
+        <button class="dm-win-btn dm-win-close" id="btnWinClose" title="Kapat">
+          <svg class="i i-sm"><use href="#i-x"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dm-admin-banner" id="adminBanner" hidden>
+    <svg class="i i-sm"><use href="#i-shield"/></svg>
+    <span>Uygulama başına trafik ölçümü ve engelleme için DarkMirror'ın yönetici olarak çalışması gerekir. Bağlantılar şu an yalnızca listeleniyor.</span>
+    <button class="dm-pill-btn" id="btnRelaunchAdmin">Yönetici olarak yeniden başlat</button>
+  </div>
+
+  <main class="dm-workspace">
+    <!-- ==================== 1. GRAFİK ==================== -->
+    <section class="dm-view active" id="view-graph">
+      <div class="dm-subbar">
+        <div class="dm-subbar-group">
+          <div class="dm-segmented" id="graphSubViewGroup">
+            <button class="dm-seg-btn active" data-subview="chart">
+              <svg class="i i-sm"><use href="#i-chart"/></svg>
+              <span>Grafik</span>
+            </button>
+            <button class="dm-seg-btn" data-subview="map">
+              <svg class="i i-sm"><use href="#i-globe"/></svg>
+              <span>Dünya haritası</span>
+            </button>
+          </div>
+          <div class="dm-segmented" id="graphPivotGroup">
+            <button class="dm-seg-btn active" data-pivot="all">Tüm trafik</button>
+            <button class="dm-seg-btn" data-pivot="apps">Uygulamalar</button>
+            <button class="dm-seg-btn" data-pivot="traffic">Protokoller</button>
+            <button class="dm-seg-btn" data-pivot="publishers">Yayımcılar</button>
+          </div>
+        </div>
+
+        <div class="dm-subbar-center">
+          <button class="dm-pill-btn" id="btnPauseGraph" title="Canlı grafiği duraklat / sürdür">
+            <svg class="i i-sm"><use href="#i-pause"/></svg>
+            <span>Duraklat</span>
+          </button>
+          <span class="dm-peak-label">Zirve <strong id="graphPeakRate">0 B/sn</strong></span>
+          <span class="dm-peak-label">Soket <strong id="graphSocketCount">0</strong></span>
+          <select id="graphAppFilter" class="dm-select-sm" title="Uygulamaya göre filtrele">
+            <option value="">Tüm uygulamalar</option>
+          </select>
+        </div>
+
+        <div class="dm-subbar-group">
+          <div class="dm-segmented" id="graphRangeGroup">
+            <button class="dm-seg-btn active" data-minutes="5">5 dk</button>
+            <button class="dm-seg-btn" data-minutes="15">15 dk</button>
+            <button class="dm-seg-btn" data-minutes="60">1 sa</button>
+            <button class="dm-seg-btn" data-minutes="180">3 sa</button>
+            <button class="dm-seg-btn" data-minutes="1440">24 sa</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="dm-graph-stage" id="graphChartStage">
+        <div class="dm-canvas-box">
+          <canvas id="trafficCanvas"></canvas>
+          <div class="dm-graph-legend">
+            <span class="dm-legend-item"><i class="dm-dot-down"></i> Gelen</span>
+            <span class="dm-legend-item"><i class="dm-dot-up"></i> Giden</span>
+            <span class="dm-legend-item"><i class="dm-dot-alert"></i> Güvenlik olayı</span>
+          </div>
+          <div class="dm-graph-hover-card" id="graphTooltip" hidden></div>
+        </div>
+
+        <div class="dm-overview-bar" title="Zaman çizelgesi — yakınlaştırmak için tıklayın">
+          <canvas id="overviewCanvas"></canvas>
+          <div class="dm-overview-window" id="overviewWindow"></div>
+        </div>
+      </div>
+
+      <div class="dm-map-stage" id="graphMapStage" hidden>
+        <canvas id="geoMapCanvas"></canvas>
+
+        <div class="dm-map-overlay">
+          <strong id="mapActiveCountries">0 ülke · 0 sunucu</strong>
+          <small class="dm-map-hint">Sürükleyerek döndürün, tekerlekle yakınlaştırın</small>
+        </div>
+
+        <div class="dm-globe-controls">
+          <button class="dm-pill-btn active" id="btnGlobeAutoRotate">
+            <svg class="i i-sm"><use href="#i-rotate"/></svg>
+            <span id="globeRotateLabel">Otomatik döndür: açık</span>
+          </button>
+          <button class="dm-pill-btn" id="btnGlobeResetView">
+            <svg class="i i-sm"><use href="#i-target"/></svg>
+            <span>Konumuma odakla</span>
+          </button>
+          <button class="dm-pill-btn" id="btnGlobeZoomIn" title="Yakınlaştır" aria-label="Yakınlaştır">
+            <svg class="i i-sm"><use href="#i-plus"/></svg>
+          </button>
+          <button class="dm-pill-btn" id="btnGlobeZoomOut" title="Uzaklaştır" aria-label="Uzaklaştır">
+            <svg class="i i-sm"><use href="#i-minus"/></svg>
+          </button>
+        </div>
+
+        <div class="dm-globe-sidehud" id="globeCountryHud"></div>
+      </div>
+
+      <div class="dm-bottom-split">
+        <div class="dm-split-pane">
+          <div class="dm-pane-header">
+            <div class="dm-pane-title">
+              <span>Uygulamalar</span>
+              <span class="dm-pane-count" id="graphAppsCount">0</span>
+            </div>
+            <input type="search" id="graphAppSearch" class="dm-input-sm" placeholder="Uygulama ara" />
+          </div>
+          <div class="dm-split-list" id="graphAppsList"></div>
+        </div>
+
+        <div class="dm-split-pane">
+          <div class="dm-pane-header">
+            <div class="dm-pane-title">
+              <span id="graphRightPaneTitle">Sunucular</span>
+              <span class="dm-pane-count" id="graphHostsCount">0</span>
+            </div>
+            <input type="search" id="graphHostSearch" class="dm-input-sm" placeholder="Sunucu, IP veya ülke ara" />
+          </div>
+          <div class="dm-split-list" id="graphHostsList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. GÜVENLİK DUVARI ==================== -->
+    <section class="dm-view" id="view-firewall">
+      <div class="dm-subbar dm-firewall-bar">
+        <div class="dm-fw-controls-left">
+          <button class="dm-fw-switch active" id="btnFirewallToggle" role="switch" aria-checked="true">
+            <span class="dm-fw-dot"></span>
+            <strong id="firewallStatusLabel">DarkMirror kuralları açık</strong>
+          </button>
+
+          <button class="dm-pill-btn" id="btnUnblockAll" title="DarkMirror'ın oluşturduğu tüm Windows Güvenlik Duvarı kurallarını sil">
+            <svg class="i i-sm"><use href="#i-gate-open"/></svg>
+            <span>Tüm engelleri kaldır</span>
+          </button>
+
+          <span class="dm-fw-summary" id="firewallSummaryStats">0 uygulama · 0 engelli</span>
+        </div>
+
+        <div class="dm-fw-controls-right">
+          <input type="search" id="firewallSearch" class="dm-input" placeholder="Uygulama, yol veya yayımcı ara" />
+          <button class="dm-btn-primary" id="btnAddFirewallRule">
+            <svg class="i i-sm"><use href="#i-plus"/></svg>
+            <span>Uygulama engelle…</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dm-table-container">
+        <table class="dm-table dm-fw-table">
+          <thead>
+            <tr>
+              <th style="width: 68px; text-align: center;">Geçit</th>
+              <th style="width: 31%;">Uygulama ve imza</th>
+              <th style="width: 14%;">Son görülme</th>
+              <th class="num" style="width: 9%;">Gelen</th>
+              <th class="num" style="width: 9%;">Giden</th>
+              <th style="width: 13%;">VirusTotal</th>
+              <th style="width: 13%;">Durum</th>
+              <th style="width: 10%; text-align: right;">İşlem</th>
+            </tr>
+          </thead>
+          <tbody id="firewallTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==================== 3. KULLANIM ==================== -->
+    <section class="dm-view" id="view-usage">
+      <div class="dm-subbar">
+        <div class="dm-segmented" id="usagePeriodGroup">
+          <button class="dm-seg-btn active" data-period="day">Bugün</button>
+          <button class="dm-seg-btn" data-period="week">Son 7 gün</button>
+          <button class="dm-seg-btn" data-period="month">Son 30 gün</button>
+        </div>
+
+        <div class="dm-quota-strip" id="quotaStrip">
+          <div class="dm-quota-labels">
+            <span>Aylık veri planı <strong id="quotaText">0 B / 100 GB</strong></span>
+            <span id="quotaPercentText">%0</span>
+          </div>
+          <div class="dm-quota-track">
+            <div class="dm-quota-fill" id="quotaFillBar" style="width: 0%"></div>
+          </div>
+        </div>
+
+        <div class="dm-subbar-group">
+          <button class="dm-pill-btn" id="btnConfigPlan">
+            <svg class="i i-sm"><use href="#i-sliders"/></svg>
+            <span>Veri planı</span>
+          </button>
+          <button class="dm-pill-btn" id="btnExportUsage">
+            <svg class="i i-sm"><use href="#i-download"/></svg>
+            <span>CSV indir</span>
+          </button>
+          <button class="dm-pill-btn dm-pill-danger" id="btnResetUsage">
+            <svg class="i i-sm"><use href="#i-trash"/></svg>
+            <span>Geçmişi sıfırla</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dm-usage-hero">
+        <div class="dm-usage-ring-box">
+          <canvas id="usageDonutCanvas" width="144" height="144"></canvas>
+          <div class="dm-usage-ring-center">
+            <span class="dm-ring-sub">TOPLAM</span>
+            <strong id="usageTotalBytes">0 B</strong>
+          </div>
+        </div>
+
+        <div class="dm-usage-kpis">
+          <div class="dm-usage-kpi dm-kpi-down">
+            <span class="dm-kpi-tag">GELEN</span>
+            <strong id="usageDownBytes">0 B</strong>
+            <small id="usageDownPercent">Toplamın %0'ı</small>
+          </div>
+          <div class="dm-usage-kpi dm-kpi-up">
+            <span class="dm-kpi-tag">GİDEN</span>
+            <strong id="usageUpBytes">0 B</strong>
+            <small id="usageUpPercent">Toplamın %0'ı</small>
+          </div>
+          <div class="dm-usage-kpi">
+            <span class="dm-kpi-tag">UYGULAMALARA ATANAN</span>
+            <strong id="usageActiveCounts">—</strong>
+            <small id="usageTopPublisher">—</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="dm-usage-columns">
+        <div class="dm-usage-col">
+          <div class="dm-pane-header">
+            <div class="dm-pane-title"><span>Uygulamalar</span></div>
+          </div>
+          <div class="dm-usage-list" id="usageAppsList"></div>
+        </div>
+
+        <div class="dm-usage-col">
+          <div class="dm-pane-header">
+            <div class="dm-pane-title"><span>Protokoller</span></div>
+          </div>
+          <div class="dm-usage-list" id="usageProtocolsList"></div>
+        </div>
+
+        <div class="dm-usage-col">
+          <div class="dm-pane-header">
+            <div class="dm-pane-title"><span>Sunucular ve ülkeler</span></div>
+          </div>
+          <div class="dm-usage-list" id="usageHostsList"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. AĞ ==================== -->
+    <section class="dm-view" id="view-network">
+      <div class="dm-subbar">
+        <div class="dm-subbar-group">
+          <button class="dm-btn-primary" id="btnScanLan">
+            <svg class="i i-sm"><use href="#i-radar"/></svg>
+            <span id="scanLanBtnText">Ağı tara</span>
+          </button>
+          <span class="dm-net-status" id="lanScanStatus">Yerel ağ cihazları izleniyor</span>
+        </div>
+        <div class="dm-subbar-group">
+          <span class="dm-peak-label" id="adapterInfoStrip">Ağ geçidi: -</span>
+          <button class="dm-pill-btn" id="btnExportNetworkCsv">
+            <svg class="i i-sm"><use href="#i-download"/></svg>
+            <span>Cihaz listesi (CSV)</span>
+          </button>
+          <input type="search" id="lanSearchInput" class="dm-input" placeholder="IP, MAC, üretici veya cihaz adı ara" />
+        </div>
+      </div>
+
+      <div class="dm-network-layout">
+        <aside class="dm-network-sidebar">
+          <div class="dm-pane-header">
+            <div class="dm-pane-title">
+              <span>Cihazlar</span>
+              <span class="dm-pane-count" id="sidebarDeviceCount">0</span>
+            </div>
+          </div>
+          <div class="dm-network-side-list" id="networkSidebarList"></div>
+        </aside>
+
+        <div class="dm-network-grid" id="lanDevicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. UYARILAR ==================== -->
+    <section class="dm-view" id="view-alerts">
+      <div class="dm-subbar">
+        <div class="dm-subbar-group">
+          <div class="dm-segmented" id="alertFilterGroup">
+            <button class="dm-seg-btn active" data-type="all">Tümü</button>
+            <button class="dm-seg-btn" data-type="apps">Uygulamalar</button>
+            <button class="dm-seg-btn" data-type="network">Ağ</button>
+            <button class="dm-seg-btn" data-type="system">Sistem</button>
+          </div>
+
+          <select id="alertSeveritySelect" class="dm-select-sm" title="Önem derecesine göre filtrele">
+            <option value="all">Tüm önem dereceleri</option>
+            <option value="threat">Tehdit</option>
+            <option value="caution">Dikkat</option>
+            <option value="info">Bilgi</option>
+          </select>
+        </div>
+
+        <div class="dm-subbar-group">
+          <input type="search" id="alertSearchInput" class="dm-input-sm" placeholder="Uygulama veya IP ara" />
+          <button class="dm-pill-btn" id="btnMarkAlertsRead">
+            <svg class="i i-sm"><use href="#i-check-all"/></svg>
+            <span>Tümünü okundu say</span>
+          </button>
+          <button class="dm-pill-btn dm-pill-danger" id="btnClearAllAlerts">
+            <svg class="i i-sm"><use href="#i-trash"/></svg>
+            <span>Tümünü temizle</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="dm-alerts-timeline" id="alertsTimeline"></div>
+    </section>
+  </main>
+
+  <div class="dm-toast-stack" id="dmToastStack" aria-live="polite"></div>
+
+  <div class="dm-modal-backdrop" id="appDetailModal" hidden>
+    <div class="dm-modal" role="dialog" aria-modal="true" aria-labelledby="modalAppName">
+      <div class="dm-modal-header">
+        <div class="dm-modal-title-row">
+          <div class="dm-app-avatar lg" id="modalAppAvatar">DM</div>
+          <div style="min-width: 0;">
+            <h3 id="modalAppName">Uygulama</h3>
+            <p id="modalAppPublisher" class="dm-muted">Yayımcı</p>
+          </div>
+        </div>
+        <button class="dm-icon-btn" id="btnCloseModal" title="Kapat" aria-label="Kapat">
+          <svg class="i"><use href="#i-x"/></svg>
+        </button>
+      </div>
+      <div class="dm-modal-body" id="modalAppBody"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

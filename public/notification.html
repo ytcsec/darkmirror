@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="color-scheme" content="light dark" />
+  <title>DarkMirror bildirimi</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    html,
+    body {
+      background: var(--dm-sheet);
+      font-size: 12.5px;
+    }
+    .popup-shell {
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--dm-rule);
+      background: var(--dm-sheet);
+      display: flex;
+      flex-direction: column;
+      padding: 12px 14px 12px;
+      gap: 10px;
+    }
+    .popup-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .popup-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--dm-ink-2);
+    }
+    .popup-brand .dm-mark {
+      width: 16px;
+      height: 16px;
+    }
+    .popup-close {
+      width: 26px;
+      height: 26px;
+    }
+    .popup-body {
+      flex: 1;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      min-height: 0;
+      cursor: pointer;
+    }
+    .popup-content {
+      flex: 1;
+      min-width: 0;
+    }
+    .popup-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+    .popup-title {
+      font-weight: 700;
+      font-size: 13.5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .popup-detail {
+      font-size: 12.5px;
+      color: var(--dm-ink-2);
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .popup-meta {
+      margin-top: 3px;
+      font-size: 11px;
+      color: var(--dm-ink-3);
+      font-family: var(--dm-mono);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .popup-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+    .popup-actions .dm-pill-btn {
+      height: 28px;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="dm-mark" viewBox="0 0 32 32">
+        <clipPath id="dmMarkClip"><path d="M17 4H20C25.5 4 29 9.4 29 16S25.5 28 20 28H17Z"/></clipPath>
+        <path d="M15 4H12C6.5 4 3 9.4 3 16S6.5 28 12 28H15Z" fill="currentColor"/>
+        <g clip-path="url(#dmMarkClip)" style="stroke: var(--dm-mark-reflect, currentColor)" stroke-width="2">
+          <path d="M17 6H30M17 10H30M17 14H30M17 18H30M17 22H30M17 26H30"/>
+        </g>
+        <path d="M17 4H20C25.5 4 29 9.4 29 16S25.5 28 20 28H17Z" fill="none" style="stroke: var(--dm-mark-reflect, currentColor)" stroke-width="1.5"/>
+      </symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+      <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M5.7 5.7l12.6 12.6"/></symbol>
+    </defs>
+  </svg>
+
+  <div class="popup-shell" id="popupShell">
+    <div class="popup-body" id="popupBodyClick">
+      <div class="dm-app-avatar" id="popupAvatar">DM</div>
+      <div class="popup-content">
+        <div class="popup-title-row">
+          <span class="popup-title" id="popupTitle">DarkMirror bildirimi</span>
+          
+        </div>
+        <div class="popup-detail" id="popupDetail">Ağ etkinliği algılandı.</div>
+        <div class="dm-tp-stamps">
+          <span class="dm-status-pill neutral" id="popupCategory">İlk ağ erişimi</span>
+          <span class="dm-status-pill caution" id="popupUnsigned" hidden>İmzasız</span>
+          <span class="dm-tp-meta" id="popupMeta">-</span>
+        </div>
+      </div>
+      <button class="dm-icon-btn dm-tp-close" id="btnClose" title="Kapat" aria-label="Bildirimi kapat">
+        <svg class="i i-sm"><use href="#i-x"/></svg>
+      </button>
+    </div>
+
+    <div class="popup-actions">
+      <svg class="dm-mark dm-tp-mark" aria-hidden="true"><use href="#dm-mark"/></svg>
+      <button class="dm-pill-btn" id="btnAllow">
+        <svg class="i i-sm"><use href="#i-check"/></svg>
+        <span>İzin ver</span>
+      </button>
+      <button class="dm-pill-btn" id="btnBlock">
+        <svg class="i i-sm"><use href="#i-ban"/></svg>
+        <span>Engelle</span>
+      </button>
+      <button class="dm-pill-btn" id="btnDetails">Ayrıntılar</button>
+    </div>
+  </div>
+
+  <script src="/notification.js"></script>
+</body>
+</html>
