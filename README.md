@@ -15,6 +15,13 @@
   <a href="LICENSE">MIT lisansı</a>
 </p>
 
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/graph-dark.webp">
+    <img src="docs/screenshots/graph-light.webp" width="900" alt="DarkMirror canlı trafik grafiği, uygulama ve sunucu listeleri">
+  </picture>
+</p>
+
 ---
 
 ## Neler yapar
@@ -28,6 +35,38 @@
 - **Yerel ağ cihazları:** ARP komşu tablosu, IEEE kayıtlarından üretici adı, cihazlara ad ve not.
 - **Kullanım ve kota:** Günlük, haftalık ve aylık veri kullanımı, aylık kota göstergesi, CSV dışa aktarma.
 - **Açık ve koyu tema:** Windows ayarını izler, menüden değiştirilebilir.
+
+## Ekran görüntüleri
+
+Görüntüler GitHub temanıza göre açık veya koyu gösterilir. Yerel ağ cihazlarının MAC adresleri ve kullanıcı adı maskelenmiştir.
+
+**Dünya haritası:** Bağlanılan sunucuların ülkeleri ve trafik miktarı, döndürülebilir küre üzerinde.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/map-dark.webp">
+  <img src="docs/screenshots/map-light.webp" width="900" alt="Bağlanılan ülkeleri gösteren 3B dünya haritası">
+</picture>
+
+**Güvenlik duvarı:** Her uygulamanın imza durumu, yolu, trafiği ve tek tıkla engelleme.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/firewall-dark.webp">
+  <img src="docs/screenshots/firewall-light.webp" width="900" alt="Uygulama listesi, imza durumu ve engelleme düğmeleri">
+</picture>
+
+**Kullanım:** Günlük, haftalık ve aylık toplamlar; uygulama, protokol ve sunucu kırılımı, aylık kota.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/usage-dark.webp">
+  <img src="docs/screenshots/usage-light.webp" width="900" alt="Veri kullanımı özeti ve uygulama, protokol, sunucu listeleri">
+</picture>
+
+**Yerel ağ:** ARP tablosundaki cihazlar, üretici adları, ağ geçidi ve DNS bilgisi.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/screenshots/network-dark.webp">
+  <img src="docs/screenshots/network-light.webp" width="900" alt="Yerel ağdaki cihaz kartları">
+</picture>
 
 ## Verilere ne kadar güvenebilirim?
 
@@ -117,6 +156,7 @@ public/          Arayüz (HTML/CSS/JS, framework yok), marka varlıkları, yazı
 resources/data/  scripts/build-data.mjs ile üretilen çevrimdışı veri
 scripts/         Veri ve yardımcı derleme betikleri
 tests/           Uçtan uca doğrulama
+docs/screenshots/  README ekran görüntüleri (açık ve koyu tema)
 ```
 
 ## Katkı
