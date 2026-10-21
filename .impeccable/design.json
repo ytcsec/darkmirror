@@ -1,0 +1,628 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-21T01:38:40+00:00",
+  "title": "Design System: DarkMirror",
+  "extensions": {
+    "themes": {
+      "default": "light",
+      "dark": "@media (prefers-color-scheme: dark) :root:not([data-theme=\"light\"]) ve :root[data-theme=\"dark\"]; aynı --dm-* adları, colorMeta.<key>.dark değerleri",
+      "canvas": "app.js themeColors() çizim anında --dm-* değişkenlerini okur"
+    },
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Güvenlik Kâğıdı",
+        "canonical": "#f3f4ef",
+        "oklch": "oklch(96.5% 0.007 115.7)",
+        "cssVar": "--dm-paper",
+        "dark": "#0e1526",
+        "tonalRamp": [
+          "#0b0c08",
+          "#242421",
+          "#3f403c",
+          "#5d5e5a",
+          "#7d7e79",
+          "#9e9f9a",
+          "#c4c5c0",
+          "#eeefea"
+        ]
+      },
+      "paper-2": {
+        "role": "neutral",
+        "displayName": "İkinci Kâğıt",
+        "canonical": "#eceee7",
+        "oklch": "oklch(94.6% 0.010 119.6)",
+        "cssVar": "--dm-paper-2",
+        "dark": "#121b30",
+        "tonalRamp": [
+          "#0b0c07",
+          "#232520",
+          "#3f403b",
+          "#5d5e58",
+          "#7c7e78",
+          "#9d9f99",
+          "#c3c5be",
+          "#edefe8"
+        ]
+      },
+      "sheet": {
+        "role": "neutral",
+        "displayName": "Sayfa",
+        "canonical": "#fafbf7",
+        "oklch": "oklch(98.6% 0.005 117.9)",
+        "cssVar": "--dm-sheet",
+        "dark": "#16213a",
+        "tonalRamp": [
+          "#0b0b09",
+          "#242421",
+          "#3f403d",
+          "#5d5e5b",
+          "#7d7e7a",
+          "#9e9f9b",
+          "#c4c4c1",
+          "#eeefeb"
+        ]
+      },
+      "hover": {
+        "role": "neutral",
+        "displayName": "Üzerine Gelme Tonu",
+        "canonical": "#e5e8df",
+        "oklch": "oklch(92.6% 0.012 121.7)",
+        "cssVar": "--dm-hover",
+        "dark": "#1c2945",
+        "tonalRamp": [
+          "#0a0c07",
+          "#23251e",
+          "#3e413a",
+          "#5c5f57",
+          "#7c7e76",
+          "#9da097",
+          "#c3c5bd",
+          "#edf0e7"
+        ]
+      },
+      "press": {
+        "role": "neutral",
+        "displayName": "Basma Tonu",
+        "canonical": "#dce0d5",
+        "oklch": "oklch(90.1% 0.015 123.1)",
+        "cssVar": "--dm-press",
+        "dark": "#223154",
+        "tonalRamp": [
+          "#0a0c06",
+          "#22251d",
+          "#3e4138",
+          "#5c5f56",
+          "#7b7f75",
+          "#9ca096",
+          "#c2c6bb",
+          "#ecf0e5"
+        ]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Çizgi",
+        "canonical": "#cfd4c7",
+        "oklch": "oklch(86.2% 0.018 124.0)",
+        "cssVar": "--dm-rule",
+        "dark": "#2a3a5e",
+        "tonalRamp": [
+          "#090c05",
+          "#22261c",
+          "#3e4237",
+          "#5b6054",
+          "#7b7f73",
+          "#9ca194",
+          "#c1c6b9",
+          "#ecf1e3"
+        ]
+      },
+      "rule-soft": {
+        "role": "neutral",
+        "displayName": "Yumuşak Çizgi",
+        "canonical": "#e0e3da",
+        "oklch": "oklch(91.1% 0.012 121.7)",
+        "cssVar": "--dm-rule-soft",
+        "dark": "#1e2b49",
+        "tonalRamp": [
+          "#0a0c07",
+          "#23251e",
+          "#3e413a",
+          "#5c5f57",
+          "#7c7e76",
+          "#9da097",
+          "#c3c5bd",
+          "#edf0e7"
+        ]
+      },
+      "ink": {
+        "role": "primary",
+        "displayName": "Lacivert Mürekkep",
+        "canonical": "#14213d",
+        "oklch": "oklch(25.2% 0.056 264.0)",
+        "cssVar": "--dm-ink",
+        "dark": "#ecede6",
+        "tonalRamp": [
+          "#020922",
+          "#16233f",
+          "#303f5e",
+          "#4d5d7e",
+          "#6c7d9f",
+          "#8d9fc2",
+          "#b2c4ea",
+          "#e7effe"
+        ]
+      },
+      "ink-2": {
+        "role": "neutral",
+        "displayName": "İkincil Mürekkep",
+        "canonical": "#44506a",
+        "oklch": "oklch(43.2% 0.046 265.3)",
+        "cssVar": "--dm-ink-2",
+        "dark": "#b2b9c9",
+        "tonalRamp": [
+          "#030a1e",
+          "#19233a",
+          "#343f58",
+          "#515d78",
+          "#707d99",
+          "#919ebc",
+          "#b6c4e3",
+          "#e7effe"
+        ]
+      },
+      "ink-3": {
+        "role": "neutral",
+        "displayName": "Üçüncül Mürekkep",
+        "canonical": "#5c6680",
+        "oklch": "oklch(51.2% 0.043 268.4)",
+        "cssVar": "--dm-ink-3",
+        "dark": "#8d96ab",
+        "tonalRamp": [
+          "#05091d",
+          "#1b2339",
+          "#363f57",
+          "#535d77",
+          "#727d98",
+          "#939eba",
+          "#b8c4e1",
+          "#e8eeff"
+        ]
+      },
+      "in": {
+        "role": "secondary",
+        "displayName": "Petrol Giriş Damgası",
+        "canonical": "#0e6c78",
+        "oklch": "oklch(48.8% 0.081 208.7)",
+        "cssVar": "--dm-in",
+        "dark": "#55c3cd",
+        "tonalRamp": [
+          "#000e12",
+          "#002a2f",
+          "#034951",
+          "#096a76",
+          "#388a97",
+          "#5cadb9",
+          "#83d3e0",
+          "#cdf7ff"
+        ]
+      },
+      "out": {
+        "role": "secondary",
+        "displayName": "Kehribar Çıkış Damgası",
+        "canonical": "#95570c",
+        "oklch": "oklch(51.7% 0.114 62.8)",
+        "cssVar": "--dm-out",
+        "dark": "#e3a552",
+        "tonalRamp": [
+          "#170600",
+          "#381c00",
+          "#5f3400",
+          "#884d00",
+          "#ac6c2b",
+          "#d08e4e",
+          "#f9b474",
+          "#ffead9"
+        ]
+      },
+      "ok": {
+        "role": "tertiary",
+        "displayName": "Onay Yeşili",
+        "canonical": "#2c6a39",
+        "oklch": "oklch(47.0% 0.101 148.2)",
+        "cssVar": "--dm-ok",
+        "dark": "#74c48a",
+        "tonalRamp": [
+          "#001002",
+          "#002d0c",
+          "#084d1e",
+          "#2f6d3c",
+          "#508e5a",
+          "#71b07b",
+          "#96d79f",
+          "#c8ffcf"
+        ]
+      },
+      "threat": {
+        "role": "tertiary",
+        "displayName": "Tehdit Kırmızısı",
+        "canonical": "#b3261e",
+        "oklch": "oklch(50.1% 0.178 28.7)",
+        "cssVar": "--dm-threat",
+        "dark": "#ff7666",
+        "tonalRamp": [
+          "#210000",
+          "#4c0000",
+          "#7d0001",
+          "#ac1d17",
+          "#d2463a",
+          "#f96a5b",
+          "#ffab9f",
+          "#ffe9e5"
+        ]
+      },
+      "on-threat": {
+        "role": "tertiary",
+        "displayName": "Tehdit Üstü",
+        "canonical": "#ffffff",
+        "oklch": "oklch(100.0% 0.000 89.9)",
+        "cssVar": "--dm-on-threat",
+        "dark": "#0e1526",
+        "tonalRamp": [
+          "#0b0b0b",
+          "#242424",
+          "#404040",
+          "#5d5d5d",
+          "#7d7d7d",
+          "#9e9e9e",
+          "#c4c4c4",
+          "#eeeeee"
+        ]
+      },
+      "caution": {
+        "role": "tertiary",
+        "displayName": "Dikkat Moru",
+        "canonical": "#7a3f8c",
+        "oklch": "oklch(47.4% 0.134 317.8)",
+        "cssVar": "--dm-caution",
+        "dark": "#c9a0e0",
+        "tonalRamp": [
+          "#180020",
+          "#3b004b",
+          "#5b216c",
+          "#7c418e",
+          "#9e61b1",
+          "#c182d4",
+          "#e8a8fd",
+          "#f9e7ff"
+        ]
+      },
+      "foil": {
+        "role": "tertiary",
+        "displayName": "Yaldız",
+        "canonical": "#9c7a2a",
+        "oklch": "oklch(59.8% 0.105 85.1)",
+        "cssVar": "--dm-foil",
+        "dark": "#c8a24a",
+        "tonalRamp": [
+          "#120900",
+          "#302100",
+          "#523c00",
+          "#775800",
+          "#9a7827",
+          "#bc994c",
+          "#e3bf72",
+          "#ffedc7"
+        ]
+      },
+      "focus": {
+        "role": "secondary",
+        "displayName": "Odak Petrolü",
+        "canonical": "#0e6c78",
+        "oklch": "oklch(48.8% 0.081 208.7)",
+        "cssVar": "--dm-focus",
+        "dark": "#55c3cd",
+        "tonalRamp": [
+          "#000e12",
+          "#002a2f",
+          "#034951",
+          "#096a76",
+          "#388a97",
+          "#5cadb9",
+          "#83d3e0",
+          "#cdf7ff"
+        ]
+      }
+    },
+    "extraTokens": {
+      "--dm-primary": {
+        "light": "#14213d",
+        "dark": "#ecede6",
+        "note": "ink ile aynı"
+      },
+      "--dm-on-primary": {
+        "light": "#f3f4ef",
+        "dark": "#0e1526",
+        "note": "paper ile aynı"
+      },
+      "--dm-scrim": {
+        "light": "rgba(20, 33, 61, 0.38)",
+        "dark": "rgba(4, 8, 16, 0.62)"
+      },
+      "--dm-guilloche": {
+        "light": "rgba(20, 33, 61, 0.22)",
+        "dark": "rgba(200, 162, 74, 0.32)"
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Pasaport sayfası (modal) başlığı."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Uyarı başlığı, cihaz adı, menü ve boş durum başlığı."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Gövde, satır adları (600), açıklamalar; tabular rakamlar açık."
+      },
+      "control": {
+        "displayName": "Control",
+        "purpose": "Butonlar, segmentler, girişler, yardımcı satırlar."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "11px büyük harf alan adları, sütun başlıkları, damgalar."
+      },
+      "data": {
+        "displayName": "Data",
+        "purpose": "Hız, bayt, IP, saat, hash, ülke kodu; kanvas eksen yazıları."
+      },
+      "data-lg": {
+        "displayName": "Data Large",
+        "purpose": "Kullanım KPI değerleri."
+      },
+      "mrz": {
+        "displayName": "MRZ",
+        "purpose": "Pasaport sayfasının makine okunur alt şeridi."
+      }
+    },
+    "shadows": [
+      {
+        "name": "dm-shadow",
+        "value": "0 1px 2px rgba(20, 33, 61, 0.06), 0 6px 14px -6px rgba(20, 33, 61, 0.24)",
+        "dark": "0 1px 2px rgba(0, 0, 0, 0.3), 0 6px 14px -6px rgba(0, 0, 0, 0.55)",
+        "purpose": "Yüzen kâğıt: grafik ipucu, küre ülke paneli."
+      },
+      {
+        "name": "dm-shadow-lg",
+        "value": "0 2px 4px rgba(20, 33, 61, 0.08), 0 14px 22px -10px rgba(20, 33, 61, 0.36)",
+        "dark": "0 2px 4px rgba(0, 0, 0, 0.35), 0 14px 22px -10px rgba(0, 0, 0, 0.7)",
+        "purpose": "Üst kâğıt: açılır menü, modal, uygulama içi bildirim."
+      },
+      {
+        "name": "passport-photo-frame",
+        "value": "inset 0 0 0 2px var(--dm-sheet), inset 0 0 0 3px var(--dm-rule-soft)",
+        "purpose": "Vesikalık çerçevesinin çift baskı çizgisi (derinlik değil)."
+      },
+      {
+        "name": "focus-ring-input",
+        "value": "0 0 0 3px color-mix(in srgb, var(--dm-focus) 18%, transparent)",
+        "purpose": "Giriş odağı; genel odak 2px solid var(--dm-focus), 2px ofset."
+      }
+    ],
+    "motion": [
+      {
+        "name": "dm-ease",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Varsayılan ease-out: menü, görünüm, modal, bildirim, sekme çizgisi, anahtar."
+      },
+      {
+        "name": "stamp-press",
+        "value": "160ms cubic-bezier(0.3, 0, 0.2, 1); scale 1.18→1, opacity 0.2→1",
+        "purpose": "Engelle/izin anında damganın basılması (dmStamp)."
+      },
+      {
+        "name": "menu-in",
+        "value": "180ms; translateY(-4px) scale(0.98)→none",
+        "purpose": "Açılır menü."
+      },
+      {
+        "name": "view-in",
+        "value": "240ms; opacity 0.4→1",
+        "purpose": "Sekme görünümü geçişi."
+      },
+      {
+        "name": "tab-underline",
+        "value": "280ms scaleX(0→1)",
+        "purpose": "Etkin sekme alt çizgisi."
+      },
+      {
+        "name": "modal-in",
+        "value": "320ms; translateY(10px) scale(0.985)→none",
+        "purpose": "Pasaport sayfası açılışı."
+      },
+      {
+        "name": "toast-in",
+        "value": "360ms; translateY(16px)→none",
+        "purpose": "Uygulama içi bildirim kartı."
+      },
+      {
+        "name": "state",
+        "value": "120-150ms ease",
+        "purpose": "Renk/zemin/kenar durum geçişleri."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "@media (prefers-reduced-motion: reduce) → animation/transition 0.01ms; küre otomatik dönüş, rota izi ve nabız halkaları durur",
+        "purpose": "Erişilebilirlik."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "compact",
+        "value": "1240px",
+        "purpose": "max-width: hızlı modlar, koruma satırı, mini düğmesi gizlenir; sekme dolgusu 9px; güvenlik duvarı 3. sütun düşer."
+      },
+      {
+        "name": "narrow",
+        "value": "980px",
+        "purpose": "max-width: kullanım sütunları 3→2."
+      }
+    ],
+    "icons": {
+      "sprite": "public/index.html <symbol id=\"i-*\">",
+      "grid": "24px",
+      "strokeWidth": 1.75,
+      "linecap": "round",
+      "fill": "none",
+      "sizes": [
+        "16px .i",
+        "14px .i-sm",
+        "13px in stamps (stroke 2.2)"
+      ]
+    },
+    "brandAssets": [
+      "public/brand/mark.svg",
+      "public/brand/app-icon.svg",
+      "public/brand/guilloche-band.svg",
+      "public/brand/guilloche-rosette.svg",
+      "public/brand/land-110m.json",
+      "public/fonts/public-sans-latin.woff2",
+      "public/fonts/public-sans-latin-ext.woff2"
+    ]
+  },
+  "components": [
+    {
+      "name": "Birincil Buton",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ekran başına tek birincil eylem; lacivert mürekkep dolgu.",
+      "html": "<button class=\"ds-btn-primary\"><svg class=\"ds-i-sm\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\"/></svg><span>Kural ekle</span></button>",
+      "css": ".ds-i,.ds-i-sm{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.ds-i{width:20px;height:20px}.ds-i-sm{width:14px;height:14px}.ds-btn-primary{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 13px;background:var(--dm-primary);border:1px solid var(--dm-primary);color:var(--dm-on-primary);font-size:12.5px;font-weight:600;border-radius:var(--dm-radius);cursor:pointer;transition:opacity .15s ease,transform .15s ease}.ds-btn-primary:hover{opacity:.9}.ds-btn-primary:active{transform:translateY(1px)}.ds-btn-primary:focus-visible{outline:2px solid var(--dm-focus);outline-offset:2px}"
+    },
+    {
+      "name": "İkincil Buton",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Sayfa renginde çizgili buton; Engelle ve İzin ver de mürekkeple yazılır.",
+      "html": "<div style=\"display:flex;gap:6px\"><button class=\"ds-btn-pill\"><svg class=\"ds-i-sm\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg><span>İzin ver</span></button><button class=\"ds-btn-pill\"><svg class=\"ds-i-sm\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M5.7 5.7l12.6 12.6\"/></svg><span>Engelle</span></button></div>",
+      "css": ".ds-i,.ds-i-sm{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.ds-i{width:20px;height:20px}.ds-i-sm{width:14px;height:14px}.ds-btn-pill{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);display:inline-flex;align-items:center;gap:7px;height:30px;padding:0 11px;background:var(--dm-sheet);border:1px solid var(--dm-rule);color:var(--dm-ink);font-size:12.5px;font-weight:600;border-radius:var(--dm-radius);cursor:pointer;transition:background-color .15s ease,border-color .15s ease}.ds-btn-pill:hover{background:var(--dm-hover);border-color:var(--dm-ink-3)}.ds-btn-pill:active{background:var(--dm-press)}.ds-btn-pill:focus-visible{outline:2px solid var(--dm-focus);outline-offset:2px}"
+    },
+    {
+      "name": "Giriş Alanı",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Arama ve form girişi; odakta petrol kenar ve halka.",
+      "html": "<input class=\"ds-input\" placeholder=\"Uygulama, yol veya yayımcı ara\" />",
+      "css": ".ds-input{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);height:30px;min-width:240px;padding:0 10px;background:var(--dm-sheet);border:1px solid var(--dm-rule);color:var(--dm-ink);border-radius:var(--dm-radius);font-size:12.5px;outline:none;transition:border-color .15s ease,box-shadow .15s ease}.ds-input::placeholder{color:var(--dm-ink-3)}.ds-input:focus{border-color:var(--dm-focus);box-shadow:0 0 0 3px color-mix(in srgb,var(--dm-focus) 18%,transparent)}"
+    },
+    {
+      "name": "Sekmeler",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "Üst çubuk sekmeleri; etkin sekmede 2px mürekkep alt çizgi, parlama yok.",
+      "html": "<nav class=\"ds-tabs\"><button class=\"ds-tab active\">Grafik</button><button class=\"ds-tab\">Güvenlik Duvarı</button><button class=\"ds-tab\">Kullanım</button><button class=\"ds-tab\">Ağ <span class=\"ds-badge\">9</span></button><button class=\"ds-tab\">Uyarılar <span class=\"ds-badge ink\">200</span></button></nav>",
+      "css": ".ds-tabs{display:flex;height:52px;gap:4px;background:var(--dm-paper-2);border-bottom:1px solid var(--dm-rule)}.ds-tab{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);position:relative;background:transparent;border:none;color:var(--dm-ink-2);padding:0 14px;font-size:13px;font-weight:600;display:inline-flex;align-items:center;gap:7px;cursor:pointer;transition:color .15s ease}.ds-tab::after{content:'';position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:var(--dm-ink);transform:scaleX(0);transition:transform .28s var(--dm-ease)}.ds-tab:hover{color:var(--dm-ink)}.ds-tab.active{color:var(--dm-ink);font-weight:700}.ds-tab.active::after{transform:scaleX(1)}.ds-tab:focus-visible{outline:2px solid var(--dm-focus);outline-offset:-2px}.ds-badge{font-size:11px;font-weight:700;min-width:18px;height:18px;padding:0 5px;border-radius:9px;display:inline-flex;align-items:center;justify-content:center;background:var(--dm-hover);color:var(--dm-ink-2);font-variant-numeric:tabular-nums}.ds-badge.ink{background:var(--dm-primary);color:var(--dm-on-primary)}"
+    },
+    {
+      "name": "Damga Durum İşaretleri",
+      "kind": "chip",
+      "refersTo": "stamp-allowed",
+      "description": "Basılı çerçeve damgalar: 1.5px currentColor, büyük harf, dolgu yok; tek şiddet kodu.",
+      "html": "<div style=\"display:flex;gap:8px;flex-wrap:wrap\"><span class=\"ds-stamp allowed\"><svg class=\"ds-i-sm\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M20 6 9 17l-5-5\"/></svg>İzinli</span><span class=\"ds-stamp blocked\"><svg class=\"ds-i-sm\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\"/><path d=\"M5.7 5.7l12.6 12.6\"/></svg>Engelli</span><span class=\"ds-stamp neutral\">İlk ağ erişimi</span><span class=\"ds-stamp caution\">İmzasız</span><span class=\"ds-stamp threat\">Şüpheli bağlantı</span></div>",
+      "css": ".ds-i,.ds-i-sm{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.ds-i{width:20px;height:20px}.ds-i-sm{width:14px;height:14px}.ds-stamp{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);display:inline-flex;align-items:center;gap:5px;height:22px;padding:0 7px;border:1.5px solid currentColor;border-radius:3px;font-size:11px;font-weight:750;letter-spacing:.07em;text-transform:uppercase;background:transparent;animation:ds-stamp .16s cubic-bezier(.3,0,.2,1)}.ds-stamp .ds-i-sm{width:13px;height:13px;stroke-width:2.2}.ds-stamp.allowed{color:var(--dm-ok)}.ds-stamp.blocked{color:var(--dm-ink)}.ds-stamp.neutral{color:var(--dm-ink-3)}.ds-stamp.caution{color:var(--dm-caution)}.ds-stamp.threat{color:var(--dm-threat)}@keyframes ds-stamp{0%{transform:scale(1.18);opacity:.2}100%{transform:scale(1);opacity:1}}@media (prefers-reduced-motion:reduce){.ds-stamp{animation:none}}"
+    },
+    {
+      "name": "Geçit Bariyeri",
+      "kind": "custom",
+      "refersTo": "gate-toggle",
+      "description": "Engelle/izin geçişi: kalkık bariyer (izinli, ok) ve inik bariyer (engelli, ink).",
+      "html": "<div style=\"display:flex;gap:8px\"><button class=\"ds-gate\" aria-label=\"Engelle\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 5v15M2.5 20h5\"/><path d=\"M6.5 9.5l12-7\" stroke-width=\"3\"/></svg></button><button class=\"ds-gate blocked\" aria-label=\"İzin ver\"><svg class=\"ds-i\" viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M5 5v15M2.5 20h5\"/><path d=\"M6.5 9h15\" stroke-width=\"3\"/><path d=\"M11 7.5v3M16 7.5v3\" stroke-width=\"1.2\"/></svg></button></div>",
+      "css": ".ds-i,.ds-i-sm{fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.ds-i{width:20px;height:20px}.ds-i-sm{width:14px;height:14px}.ds-gate{width:36px;height:36px;border-radius:var(--dm-radius);border:1px solid var(--dm-rule);background:var(--dm-sheet);color:var(--dm-ok);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:border-color .15s ease,color .15s ease}.ds-gate:hover{border-color:var(--dm-ink-3)}.ds-gate.blocked{color:var(--dm-ink);border-color:var(--dm-ink)}.ds-gate:focus-visible{outline:2px solid var(--dm-focus);outline-offset:2px}"
+    },
+    {
+      "name": "Uygulama Satırı",
+      "kind": "custom",
+      "refersTo": "card",
+      "description": "Vesikalık çerçeveli satır; mono baytlar ve altta iki mürekkepli pay çubuğu.",
+      "html": "<div class=\"ds-row\"><div class=\"ds-row-left\"><span class=\"ds-avatar\">CH</span><div class=\"ds-titles\"><strong>chrome.exe</strong><small>Google LLC</small></div></div><div class=\"ds-right\"><strong>1.46 GB</strong><small><span class=\"in\">775.68 MB</span> gelen · <span class=\"out\">717.06 MB</span> giden</small></div><div class=\"ds-bar\" style=\"width:72%\"><i class=\"in\" style=\"flex:.52\"></i><i class=\"out\" style=\"flex:.48\"></i></div></div>",
+      "css": ".ds-row{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);position:relative;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:54px;padding:8px 16px 10px;border-bottom:1px solid var(--dm-rule-soft);background:var(--dm-paper);color:var(--dm-ink);font-size:13px;cursor:pointer;transition:background-color .12s ease}.ds-row:hover{background:var(--dm-hover)}.ds-row-left{display:flex;align-items:center;gap:12px;min-width:0}.ds-avatar{font-family:var(--dm-mono, 'Cascadia Mono', Consolas, monospace);width:32px;height:32px;border-radius:3px;background:var(--dm-sheet);border:1px solid var(--dm-rule);box-shadow:inset 0 0 0 2px var(--dm-sheet),inset 0 0 0 3px var(--dm-rule-soft);color:var(--dm-ink-2);font-weight:700;font-size:11px;display:inline-flex;align-items:center;justify-content:center}.ds-titles{display:flex;flex-direction:column;gap:1px}.ds-titles strong{font-weight:600;line-height:1.3}.ds-titles small{font-size:11.5px;color:var(--dm-ink-3)}.ds-right{font-family:var(--dm-mono, 'Cascadia Mono', Consolas, monospace);display:flex;flex-direction:column;align-items:flex-end;font-size:12px;line-height:1.3}.ds-right strong{font-weight:600}.ds-right small{font-size:11px;color:var(--dm-ink-3)}.ds-right .in{color:var(--dm-in)}.ds-right .out{color:var(--dm-out)}.ds-bar{position:absolute;left:16px;bottom:4px;height:2px;display:flex;gap:1px}.ds-bar i{display:block;height:100%}.ds-bar .in{background:var(--dm-in)}.ds-bar .out{background:var(--dm-out)}"
+    },
+    {
+      "name": "Pasaport Veri Sayfası",
+      "kind": "card",
+      "refersTo": "modal",
+      "description": "Uygulama ayrıntısı: vesikalık, giyoş şeritli başlık, alan ızgarası ve MRZ satırı.",
+      "html": "<div class=\"ds-passport\"><div class=\"ds-pp-head\"><span class=\"ds-pp-photo\">PR</span><div><h3>Process-22312.exe</h3><p>Microsoft Windows Operating System</p></div></div><div class=\"ds-pp-body\"><div class=\"ds-pp-fields\"><div class=\"ds-kv\"><span>Dijital imza</span><strong class=\"ok\">İmzalı, doğrulandı</strong></div><div class=\"ds-kv\"><span>Geçit durumu</span><strong class=\"ok\">İzinli</strong></div><div class=\"ds-kv\"><span>Gelen</span><strong class=\"mono in\">994.99 MB</strong></div><div class=\"ds-kv\"><span>Giden</span><strong class=\"mono out\">1.03 GB</strong></div></div><div class=\"ds-mrz\">A&lt;DMRPROCESS&lt;22312&lt;&lt;MICROSOFT&lt;WINDOWS&lt;OPERAT\n1222A44A5FDB&lt;SALW&lt;1018871&lt;1080969&lt;&lt;TR&lt;&lt;&lt;&lt;&lt;&lt;</div></div></div>",
+      "css": ".ds-passport{font-family:var(--dm-font, 'Public Sans', 'Segoe UI', system-ui, sans-serif);width:520px;max-width:100%;background:var(--dm-sheet);color:var(--dm-ink);border:1px solid var(--dm-rule);border-radius:var(--dm-radius-lg);box-shadow:var(--dm-shadow-lg);overflow:hidden;font-size:13px}.ds-pp-head{position:relative;display:flex;align-items:center;gap:16px;padding:18px 20px 26px;border-bottom:1px solid var(--dm-rule)}.ds-pp-head::before{content:'';position:absolute;inset:auto 0 0 0;height:12px;background:var(--dm-guilloche);-webkit-mask:url('/brand/guilloche-band.svg') repeat-x center/240px 48px;mask:url('/brand/guilloche-band.svg') repeat-x center/240px 48px}.ds-pp-head h3{font-size:18px;font-weight:700;letter-spacing:-.015em;line-height:1.25;margin:0}.ds-pp-head p{margin:2px 0 0;font-size:12.5px;color:var(--dm-ink-2)}.ds-pp-photo{font-family:var(--dm-mono, 'Cascadia Mono', Consolas, monospace);width:52px;height:64px;border-radius:3px;background:var(--dm-sheet);border:1px solid var(--dm-rule);box-shadow:inset 0 0 0 2px var(--dm-sheet),inset 0 0 0 3px var(--dm-rule-soft);color:var(--dm-ink-2);font-weight:700;font-size:16px;display:inline-flex;align-items:center;justify-content:center}.ds-pp-body{padding:8px 20px 18px}.ds-pp-fields{display:grid;grid-template-columns:1fr 1fr;column-gap:24px}.ds-kv{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--dm-rule-soft)}.ds-kv>span{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dm-ink-3)}.ds-kv strong{font-weight:600}.ds-kv .mono{font-family:var(--dm-mono, 'Cascadia Mono', Consolas, monospace);font-size:12px;font-weight:500}.ds-kv .ok{color:var(--dm-ok)}.ds-kv .in{color:var(--dm-in)}.ds-kv .out{color:var(--dm-out)}.ds-mrz{margin:12px -20px -18px;padding:12px 20px 14px;background:var(--dm-paper-2);border-top:1px solid var(--dm-rule);font-family:'OCR-B','OCR B',var(--dm-mono,Consolas,monospace);font-size:12.5px;letter-spacing:.14em;line-height:1.6;color:var(--dm-ink-2);white-space:pre;overflow-x:auto}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Sınır Kapısı",
+    "overview": "Her ağ bağlantısı bir sınır geçişidir ve DarkMirror pasaport memurudur. Arayüz bir siber panel değil, resmi bir belge masasıdır: açık temada güvenlik kâğıdı üzerinde lacivert mürekkep, koyu temada lacivert pasaport kapağı üzerinde kâğıt rengi mürekkep. Parlama, neon ve ışıyan kenarlar yoktur; durum, basılı işaretlerle (damgalar, çizgiler, mürekkep renkleri) okunur.\n\nYoğunluk bir masaüstü izleme aracınınkidir: 13px gövde, 52px üst çubuk, 54-56px satırlar, tabular sayılar ve Cascadia Mono veri sütunları. Kâğıt katmanları (zemin, ikinci zemin, sayfa) ince 1px çizgilerle ayrılır; gölge yalnız masanın üstünde duran yüzen sayfalarda görülür. Belge dünyasının kendi cihazları (giyoş şeridi ve rozeti, MRZ satırı, vesikalık çerçevesi, giriş/çıkış damgaları) yalnız kimlik taşıdıkları yerlerde kullanılır.\n\nKategorinin koyu lacivert + parlayan camgöbeği \"siber panel\" düzeni reddedilir. Kırmızı alarm dili de reddedilir: kırmızı yalnız gerçek tehdittir; kullanıcının kendi engelleme kararı mürekkeple yazılır.",
+    "keyCharacteristics": [
+      "Kâğıt + mürekkep: düz, mat yüzeyler; derinlik çizgiyle ve ton katmanıyla.",
+      "İki sabit mürekkep: gelen = petrol, giden = kehribar; her ekranda aynı.",
+      "Durumlar damga çerçevesidir: 1.5px çizgi, büyük harf, dolgu yok, her zaman metin + renk.",
+      "Veri mono ve tabular; etiketler 11px büyük harf alan adı.",
+      "Hareket kısa ve damga gibi: 160ms basma, ease-out, azaltılmış hareket desteklenir."
+    ],
+    "rules": [
+      {
+        "name": "The Kırmızı Yalnız Tehdit Rule",
+        "body": "`threat` yalnız gerçek tehdit ve korumanın kapalı olduğu durumlar içindir. Engellenmiş bir uygulama kullanıcının kararıdır ve `ink` ile yazılır (damga, geçit, rozet). Tek istisna platformun kendisidir: pencere kapatma düğmesinin Windows kırmızısı (#c42b1c) bir işletim sistemi kuralıdır, paletin parçası değildir.",
+        "section": "colors"
+      },
+      {
+        "name": "The İki Mürekkep Rule",
+        "body": "Gelen her zaman `in`, giden her zaman `out`; grafik, tablo, satır çubuğu, KPI, ipucu, modal alanı ve küre aynı kodu kullanır. Bu iki renk başka bir anlam taşımaz ve yön bilgisi her zaman \"gelen/giden\" metniyle ya da ok ikonuyla birlikte gelir.",
+        "section": "colors"
+      },
+      {
+        "name": "The Yaldız Mühürdedir Rule",
+        "body": "`foil` yalnız marka işaretinde görünür (koyu temada giyoşun tonu olarak da). Arayüz öğeleri, durumlar ya da grafikler yaldız kullanmaz.",
+        "section": "colors"
+      },
+      {
+        "name": "The 11px Taban Rule",
+        "body": "Hiçbir metin 11px'in altına inmez; kanvas yazıları dahil. Küçük yardımcı metinler 11-11.5px'te durur.",
+        "section": "typography"
+      },
+      {
+        "name": "The Veri Mono'dadır Rule",
+        "body": "Ölçülen, kopyalanan ya da karşılaştırılan her değer (hız, bayt, IP, saat, hash, ülke kodu) mono ve tabulardır; adlar ve cümleler Public Sans'tadır.",
+        "section": "typography"
+      },
+      {
+        "name": "The Alan Etiketi Rule",
+        "body": "11px büyük harf etiket yalnız bir değere ya da sütuna bağlı alan adıdır (pasaporttaki \"DOSYA YOLU\" gibi). Bir başlığın üstünde süs olarak duran bağımsız üst etiket kullanılmaz.",
+        "section": "typography"
+      },
+      {
+        "name": "The Masadaki Kâğıt Rule",
+        "body": "Yerinde duran yüzeylerin gölgesi yoktur; gölge yalnız yüzen bir kâğıdın (menü, modal, bildirim, ipucu, HUD) işaretidir. Parlama (glow) ve renkli gölge yoktur.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** her rengi `--dm-*` değişkenlerinden al; kanvas çizimlerinde `themeColors()` ile çizim anında oku ki iki tema da doğru çizilsin.",
+      "**Do** gelen için `in`, giden için `out` kullan ve yönü her zaman metinle ya da okla da söyle.",
+      "**Do** durumları damga olarak bas: 1.5px `currentColor` çerçeve, büyük harf, dolgu yok, metin + renk birlikte.",
+      "**Do** engellenmiş durumu, engelle düğmesini ve engelli geçidi `ink` ile yaz; şiddeti yalnız `severityStamp()` eşlemesiyle renklendir.",
+      "**Do** ölçülen her değeri Cascadia Mono ve tabular yaz; metni 11px'in altına indirme.",
+      "**Do** ikonları 24px ızgaralı sprite'tan, 1.75 çizgi, dolgusuz kullan; engelle/izin geçişi için geçit bariyeri ikonlarını kullan.",
+      "**Do** hareketi kısa tut (menü 0.18s, görünüm 0.24s, modal 0.32s, damga 160ms), `cubic-bezier(0.16, 1, 0.3, 1)` ile çık ve `prefers-reduced-motion` altında animasyonu ve kürenin kendi hareketini durdur."
+    ],
+    "donts": [
+      "**Don't** kırmızıyı tehdit ve kapalı koruma dışında kullanma; kullanıcının engelleme kararı kırmızı değildir.",
+      "**Don't** parlama, neon, renkli gölge ya da koyu lacivert + parlayan camgöbeği \"siber panel\" görünümü ekleme.",
+      "**Don't** yaldızı (`foil`) marka işareti dışında kullanma.",
+      "**Don't** giyoşu modal/menü başlık şeridi ve boş durum rozeti dışına taşıma; arka plan dokusu ya da kart süsü yapma.",
+      "**Don't** damgaları doldurma ya da yuvarlak hap rozete çevirme.",
+      "**Don't** yerinde duran kartlara ve bölmelere gölge verme; ayrımı 1px çizgi ve ton katmanıyla yap.",
+      "**Don't** başlıkların üstüne bir değere bağlı olmayan büyük harf üst etiket koyma."
+    ]
+  }
+}

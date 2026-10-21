@@ -1,0 +1,82 @@
+{
+  "name": "darkmirror",
+  "productName": "DarkMirror",
+  "version": "1.0.0",
+  "description": "Açık kaynak, yerel çalışan Windows ağ izleyici: uygulama başına trafik, gerçek güvenlik duvarı kuralları, yerel ağ cihazları ve önemli olay uyarıları.",
+  "license": "MIT",
+  "type": "module",
+  "main": "electron/main.mjs",
+  "scripts": {
+    "start": "npm run build:probe && electron .",
+    "build:probe": "node scripts/build-probe.mjs",
+    "build:data": "node scripts/build-data.mjs",
+    "test": "npm run build:probe && node tests/verify.mjs",
+    "dist": "npm run build:probe && electron-builder --win nsis --x64 --publish never"
+  },
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "devDependencies": {
+    "electron": "^44.9.2",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.darkmirror.app",
+    "productName": "DarkMirror",
+    "copyright": "Copyright © 2026 Yusuf Taha ÇİMEN",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build-resources"
+    },
+    "files": [
+      "electron/**",
+      "src/**",
+      "public/**",
+      "!public/.impeccable/**",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "build/dmprobe.exe",
+        "to": "dmprobe.exe"
+      },
+      {
+        "from": "resources/data",
+        "to": "data"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "public/icon.ico",
+      "requestedExecutionLevel": "requireAdministrator",
+      "artifactName": "DarkMirror-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "DarkMirror",
+      "installerLanguages": [
+        "tr_TR",
+        "en_US"
+      ],
+      "language": "1055",
+      "license": "LICENSE",
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "author": "Yusuf Taha ÇİMEN",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ytcsec/darkmirror.git"
+  }
+}

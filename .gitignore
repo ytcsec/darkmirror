@@ -1,0 +1,33 @@
+# Dependencies and build output
+node_modules/
+/dist/
+/build/
+
+# Local runtime data from development runs (real network history of this machine)
+/data/
+*.db
+*.db-shm
+*.db-wal
+*.log
+
+# Design tooling scratch (screenshots contain local hostnames, IPs and paths)
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/build/
+.impeccable/live/
+
+# OS / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+
+# Tooling caches that may appear inside public/
+public/.impeccable/
+.impeccable/hook.cache.json
+.impeccable/questions/
+
+# Local-only documents (only README.md is published)
+*.md
+!README.md
