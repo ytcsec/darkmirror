@@ -22,6 +22,16 @@
   </picture>
 </p>
 
+## Tanıtım videosu
+
+<p align="center">
+  <video src="https://github.com/ytcsec/darkmirror/raw/main/docs/promo/darkmirror-tanitim.mp4" width="900" controls muted playsinline></video>
+</p>
+
+<p align="center">
+  Video görünmüyorsa: <a href="docs/promo/darkmirror-tanitim.mp4">darkmirror-tanitim.mp4</a>
+</p>
+
 ---
 
 ## Neler yapar
